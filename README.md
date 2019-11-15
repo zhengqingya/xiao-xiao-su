@@ -11,6 +11,10 @@
 3. [Spring Security 动态url权限控制（三）](https://blog.csdn.net/qq_38225558/article/details/102637637)
 4. [Spring Security 整合JWT（四）](https://blog.csdn.net/qq_38225558/article/details/102701741) 
 
+###### 项目部署
+
+[docker-compose部署项目到服务器](https://zhengqing.blog.csdn.net/article/details/103068220) 
+
 ###### 开发环境：
 
 1. JDK 1.8

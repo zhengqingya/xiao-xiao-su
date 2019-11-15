@@ -1,0 +1,13 @@
+# 指定基础镜像
+FROM maven:3.5.4-jdk-8
+# 维护者信息
+MAINTAINER zhengqing "960869719@qq.com"
+
+RUN echo "-------------------- api环境配置 --------------------"
+
+# 暴露9101端口
+EXPOSE 9101
+# 设置环境编码UTF-8
+ENV LANG C.UTF-8
+# 运行 - 配置容器，使其可执行化
+#ENTRYPOINT ["java", "-jar", "app.jar","--spring.profiles.active=dev"]
