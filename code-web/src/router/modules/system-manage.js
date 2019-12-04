@@ -44,6 +44,12 @@ const systemManage = {
       component: () => import('@/views/system-manage/log'),
       name: '系统日志',
       meta: { title: '系统日志', icon: 'my-sysmenu', noCache: true, resources: 'log' }
+    },
+    {
+      path: 'chat',
+      component: () => import('@/views/system-manage/chat'),
+      name: '聊天室',
+      meta: { title: '聊天室', icon: 'my-sysmenu', noCache: true, resources: 'chat' }
     }
   ]
 };

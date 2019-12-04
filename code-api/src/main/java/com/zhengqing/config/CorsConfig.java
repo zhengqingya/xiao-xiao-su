@@ -21,7 +21,7 @@ public class CorsConfig {
         corsConfiguration.setAllowCredentials(true);
         // ① 设置你要允许的网站域名，如果全允许则设为 *
         corsConfiguration.addAllowedOrigin("*");
-        // corsConfiguration.addAllowedOrigin("http://www.zhengqing520.com");
+        // corsConfiguration.addAllowedOrigin("http://www.zhengqingya.com");
         // ② 如果要限制 HEADER 或 METHOD 请自行更改
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");

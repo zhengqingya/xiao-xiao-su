@@ -8,6 +8,14 @@ export function getSysUserPage(query) {
   });
 }
 
+export function getSysUserList(query) {
+  return request({
+    url: '/api/system/user/list',
+    method: 'post',
+    data: query
+  });
+}
+
 export function updatePersonalInfo(form) {
   return request({
     url: '/api/system/user/updatePersonalInfo',

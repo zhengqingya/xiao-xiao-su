@@ -57,7 +57,7 @@ public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocati
             }
         }
 
-        if (requestUrl.contains("/login")){
+        if (requestUrl.contains("/login") || requestUrl.contains("/groupChat")){
             return null;
         }
 

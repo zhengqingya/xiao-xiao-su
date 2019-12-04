@@ -5,6 +5,13 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <!-- websocket聊天室 -->
+      <div class="right-menu-item" style="vertical-align: top;font-size: 20px;">
+        <router-link to="/systemManage/chat">
+          <el-button type="text">chat</el-button>
+        </router-link>
+      </div>
+
       <!-- 昵称 -->
       <div class="right-menu-item" style="vertical-align: top;font-size: 20px;"><!-- margin-top: -16px; -->
         {{ introduction }}
