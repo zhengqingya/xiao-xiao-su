@@ -3,7 +3,7 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    user: '',
+    user: {},
     status: '',
     code: '',
     token: getToken(),
@@ -21,6 +21,9 @@ const user = {
   },
 
   mutations: {
+    SET_USER: (state, user) => {
+      state.user = user
+    },
     SET_CODE: (state, code) => {
       state.code = code
     },
@@ -145,10 +148,12 @@ const user = {
             commit('SET_BUTTONS', data.buttons)
           }
 
+          commit('SET_USER', data)
           commit('SET_ID', data.id)
           commit('SET_NAME', data.username)
           commit('SET_AVATAR', data.avatar)
           commit('SET_INTRODUCTION', data.nickName)
+
           resolve(response)
         }).catch(error => {
           reject(error)

@@ -22,6 +22,8 @@
         <hutool-all.version>4.6.2</hutool-all.version>
         <springfox.version>2.6.1</springfox.version>
         <fastjson.version>1.2.13</fastjson.version>
+
+        <docker.image.prefix>xiao-xiao-su</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -134,6 +136,12 @@
             <artifactId>springfox-bean-validators</artifactId>
             <version>${springfox.version}</version>
         </dependency>
+
+        <!-- websocket -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -162,9 +170,49 @@
         <!-- 注：maven默认是不编译，因此加上如下resources才会生产对应的xml文件 目的：解决mybatis映射关系不对应问题  end =============== -->
 
         <plugins>
+            <!-- maven打包插件 -> 将整个工程打成一个 fatjar -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 作用:项目打成jar，同时把本地jar包也引入进去 -->
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+            <!-- 通过docker构建部署到服务器 -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <!-- 生成的docker镜像名称  -->
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+            <!-- 复制jar包到指定目录 -->
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <copy todir="src/main/docker" file="target/${project.artifactId}-${project.version}.${project.packaging}"></copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

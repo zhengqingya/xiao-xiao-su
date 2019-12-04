@@ -28,7 +28,7 @@
                 // 直接弹出授权页面，授权过后跳转到回调页面进行登录处理
                 // QC.Login.showPopup({
                 //     appId:"101536330",
-                //     redirectURI:"http://www.zhengqing520.com:8100/demo/login"  //登录成功后会自动跳往该地址
+                //     redirectURI:"http://www.zhengqingya.com:8100/demo/login"  //登录成功后会自动跳往该地址
                 // });
 
                 // 法二
