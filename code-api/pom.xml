@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <mybatis-plus-boot-starter.version>2.2.0</mybatis-plus-boot-starter.version>
-        <mysql.version>5.1.40</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <commons-lang3.version>3.6</commons-lang3.version>
         <hutool-all.version>4.6.2</hutool-all.version>
         <springfox.version>2.6.1</springfox.version>
