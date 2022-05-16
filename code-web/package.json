@@ -34,7 +34,7 @@
     "url": "https://github.com/zhengqingya/code-web/issues"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.21.2",
     "babel-runtime": "^6.26.0",
     "clipboard": "1.7.1",
     "codemirror": "5.39.2",
